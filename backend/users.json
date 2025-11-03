@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1760696730397,
+    "name": "Shubhi Agarwal",
+    "email": "csds23088@gmail.com",
+    "password": "Shubhi@123"
+  },
+  {
+    "id": 1760696862946,
+    "name": "preeti",
+    "email": "agarwalpreeti22079@gmail.com",
+    "password": "Preeti"
+  },
+  {
+    "id": 1760779789412,
+    "name": "sanyam",
+    "email": "sanyam@gmail.com",
+    "password": "sanyam"
+  },
+  {
+    "id": 1761888051814,
+    "name": "Satvik",
+    "email": "satviksingh0001@gmail.com",
+    "password": "Satvik@123",
+    "role": "donor"
+  }
+]

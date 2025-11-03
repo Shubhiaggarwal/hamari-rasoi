@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Donate Food | Food Management</title>
+  <link rel="stylesheet" href="style.css" />
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  
+</head>
+
+<body>
+
+  <header>
+    <h1 style="color: aliceblue;">"अन्न दान"</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="donor.html" class="active">Donor</a>
+      <a href="request.html">Request</a>
+      <a href="select.html">select page</a>
+    </nav>
+  </header>
+
+  <div class="donor-bg">
+    <h2>Your Generosity Can Save Lives</h2>
+    <!-- Image with new styling -->
+    <img src="/assets/10.png" alt="Donor" class="donor-img" />
+  </div>
+
+ <h2>🍽️ Donor Registration</h2>
+
+  <form id="donorForm">
+    <label>Name / Restaurant:</label><br>
+    <input type="text" id="donorName" required><br><br>
+
+    <label>Food Type (Bread, Rice, Curry, etc.):</label><br>
+    <input type="text" id="foodType" required><br><br>
+
+    <label>Location:</label><br>
+    <input type="text" id="donorLocation" required><br><br>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <p><a href="select.html">Go to Select Page</a></p>
+
+
+  <script src="donor.js"></script>
+
+</body>
+
+</html>
+

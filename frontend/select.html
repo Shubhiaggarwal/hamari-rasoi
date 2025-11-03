@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- //map -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<!-- //add -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donors & Receivers</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <h1>select page</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="donor.html" >Donor</a>
+    <a href="request.html">Request</a>
+    <a href="select.html"class="active">Select Page</a>
+  </nav>
+</header>
+
+<!-- Donors Section -->
+<section class="select-container">
+  <div class="column">
+    <h1>Donors</h1>
+    <select id="donorSelect">
+      <option value="">Select Donor</option>
+    </select>
+    <ol id="donorList"></ol>
+  </div>
+
+  <!-- Receivers Section -->
+  <div class="column">
+    <h1>Receivers</h1>
+    <select id="receiverSelect">
+      <option value="">Select Receiver</option>
+    </select>
+    <ol id="receiverList"></ol>
+  </div>
+</section>
+<div id="editFormContainer" style="display:none;">
+  <input type="text" id="editName" placeholder="Name" />
+  <input type="text" id="editFood" placeholder="Food Type" />
+  <input type="text" id="editLocation" placeholder="Location" />
+  <button id="saveBtn">Save</button>
+  <button onclick="document.getElementById('editFormContainer').style.display='none'">Cancel</button>
+</div>
+
+<div id="map" style="height: 500px; width: 100%;"></div>
+
+<script src="map.js"></script>
+<script src="select.js"></script>
+</body>
+</html>

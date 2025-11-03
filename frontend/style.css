@@ -1,0 +1,604 @@
+/* ================= GLOBAL STYLES ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(45deg, #ffcc00, #003366);
+  background-size: 400% 400%;
+  animation: gradientBackground 15s ease infinite;
+  color: #333;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background-color: #003366;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  animation: slideInHeader 1s ease-out;
+}
+header h1 {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: linear-gradient(45deg, #ffcc00, #003366, #ff6699);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 3px 3px 6px rgba(0,0,0,0.25);
+  animation: gradientText 6s ease infinite;
+  letter-spacing: 2px;
+}
+
+nav {
+  margin-top: 10px;
+}
+nav a {
+  margin: 0 15px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+nav a:hover {
+  color: #ffcc00;
+  transform: scale(1.05);
+}
+nav a.active {
+  color: #ffd633;
+}
+
+/* CTA Button */
+.cta-button {
+  display: inline-block;
+  background-color: #ffcc00;
+  color: #003366;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.cta-button:hover {
+  background-color: #003366;
+  color: #fff;
+  transform: translateY(-3px) scale(1.05);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background-color: #003366;
+  color: white;
+  padding: 20px;
+  margin-top: 40px;
+}
+footer p {
+  margin: 0;
+}
+
+/* ================= INDEX PAGE ================= */
+.hero {
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+  animation: fadeInHero 2s ease-in-out;
+  background: linear-gradient(45deg, #ffcc00, #003366);
+  background-size: 400% 400%;
+  animation: gradientHeroBackground 15s ease infinite;
+}
+.hero h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  animation: fadeInText 1.5s ease-out;
+}
+.hero p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto 20px;
+}
+
+/* Carousel */
+.carousel {
+  position: relative;
+  overflow: hidden;
+  width: 90%;
+  max-width: 800px;
+  margin: 30px auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  animation: fadeInCarousel 2s ease-out;
+}
+.carousel .slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+.carousel img {
+  width: 100%;
+  flex-shrink: 0;
+  border-radius: 12px;
+}
+
+/* Additional Images */
+.additional-images {
+  display: flex;
+  justify-content: space-around;
+  margin: 50px 0;
+  flex-wrap: wrap;
+  animation: fadeInImages 2s ease-in-out;
+}
+.additional-images img {
+  width: 280px;
+  border-radius: 12px;
+  margin: 10px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.additional-images img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+/* Advertisement Section */
+.advertisement {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #fafafa;
+  animation: fadeInAdvertisement 2s ease-out;
+  border-radius: 12px;
+}
+.advertisement h3 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+.brand-logos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.brand-logos img {
+  width: 120px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.brand-logos img:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+
+/* ================= DONOR PAGE ================= */
+.donor-bg {
+  background: linear-gradient(45deg, #ffcc00, #003366);
+  padding: 100px 20px;
+  color: white;
+  text-align: center;
+  animation: gradientAnimation 6s ease-in-out infinite;
+}
+.donor-bg h2 {
+  font-size: 3rem;
+  animation: fadeIn 1s ease-in-out;
+  margin-bottom: 20px;
+}
+.donor-img {
+  max-width: 350px;
+  margin: 30px auto;
+  border-radius: 15px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+  transition: all 0.3s ease-in-out;
+  animation: zoomIn 1s ease-in-out;
+}
+.donor-img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.35);
+}
+
+/* ================= REQUEST PAGE ================= */
+.request-bg {
+  background: linear-gradient(45deg, #ffcc00, #003366);
+  padding: 100px 20px;
+  color: white;
+  text-align: center;
+  animation: gradientAnimation 6s ease-in-out infinite;
+}
+.request-bg h2 {
+  font-size: 3rem;
+  animation: fadeIn 1s ease-in-out;
+  margin-bottom: 20px;
+}
+.request-img-box {
+  display: inline-block;
+  padding: 15px;
+  border-radius: 20px;
+  background: linear-gradient(45deg, #ffcc00, #003366);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.request-img-box:hover {
+  transform: scale(1.1);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+}
+.request-img {
+  max-width: 350px;
+  border-radius: 15px;
+  display: block;
+  transition: transform 0.3s ease-in-out;
+}
+.request-img-box:hover .request-img {
+  transform: scale(1.05);
+}
+
+/* ================= UNIFIED FORM STYLES ================= */
+form {
+  background: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+  max-width: 600px;
+  margin: 40px auto;
+  animation: formAnimation 1s ease-in-out;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 15px 18px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1.1rem;
+  background: #fafafa;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: #003366;
+  background: #fff;
+  outline: none;
+  box-shadow: 0 0 8px rgba(0,51,102,0.5);
+  transform: scale(1.02);
+}
+
+form label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: block;
+  color: #003366;
+}
+
+form button {
+  width: 100%;
+  padding: 15px;
+  background-color: #003366;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+form button:hover {
+  background-color: #ffcc00;
+  color: #003366;
+  transform: scale(1.05);
+}
+
+/* ================= SELECT PAGE CONTAINER ================= */
+.select-container {
+  display: flex;
+  justify-content: space-around; /* space between columns */
+  align-items: flex-start;
+  padding: 40px 20px;
+  gap: 30px; /* space between donor and receiver */
+  min-height: 80vh; /* ensure it fills the page */
+  background-color: #a0a03f; /* uniform background */
+}
+
+/* Column Styling */
+.column {
+  flex: 1; /* each column takes equal space */
+  background-color: #f0f2f5; /* card background */
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* Column headings */
+.column h2 {
+  margin-bottom: 20px;
+  color: #003366;
+}
+
+/* Lists */
+.column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* List Items / Cards */
+.column li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 12px 15px;
+  margin-bottom: 12px; /* space between cards */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.column li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+/* Dropdown */
+.column select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid #bf1a1a;
+  font-size: 1rem;
+  outline: none;
+}
+
+/* Delete Button */
+.delete-btn {
+  background-color: #bf1a1a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 5px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.delete-btn:hover {
+  background-color: #07c666;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .select-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+
+/* ================= ANIMATIONS ================= */
+@keyframes gradientBackground {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 0%; }
+  100% { background-position: 0% 100%; }
+}
+@keyframes gradientText {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 0%; }
+  100% { background-position: 0% 100%; }
+}
+@keyframes slideInHeader {
+  0% { transform: translateY(-50px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+@keyframes fadeInHero {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInText {
+  0% { opacity: 0; transform: translateY(-30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInCarousel {
+  0% { opacity: 0; transform: translateY(-50px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInImages {
+  0% { opacity: 0; transform: translateY(50px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInAdvertisement {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes zoomIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes formAnimation {
+  0% { transform: translateY(-30px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(-30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes gradientAnimation {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 0%; }
+  100% { background-position: 0% 100%; }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  .hero h2 {
+    font-size: 2.2rem;
+  }
+  .additional-images img {
+    width: 90%;
+  }
+  .brand-logos {
+    flex-direction: column;
+  }
+  .brand-logos img {
+    margin-bottom: 15px;
+  }
+  form {
+    padding: 25px;
+  }
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .card {
+    width: 90%;
+  }
+}
+/* edit styling */
+/* Edit form container styling */
+#editFormContainer {
+  display: none; /* hidden by default */
+  position: fixed; /* stay above content */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  padding: 20px 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  width: 300px;
+  z-index: 1000;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Input fields inside edit container */
+#editFormContainer input {
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* Save button styling */
+#saveEditBtn {
+  width: 100%;
+  padding: 10px;
+  background-color: #4BB543;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#saveEditBtn:hover {
+  background-color: #3da436;
+}
+
+/* Optional overlay for dim background while editing */
+#editOverlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index: 900;
+}
+/* ===== Profile Page Styling ===== */
+.profile-container {
+  max-width: 850px;
+  margin: 50px auto;
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 30px 40px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #4CAF50;
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+}
+
+.profile-header h2 {
+  color: #333;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.profile-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.profile-section {
+  flex: 1 1 45%;
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.profile-section h3 {
+  color: #4CAF50;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.profile-section input[type="file"],
+.profile-section input[type="text"],
+.profile-section textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.profile-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.profile-btn:hover {
+  background-color: #45a049;
+}
+
+.image-preview {
+  width: 180px;
+  height: 180px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 2px solid #ddd;
+  margin-top: 10px;
+}

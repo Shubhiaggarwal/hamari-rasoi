@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Requester Profile | Food Management</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .profile-container {
+      max-width: 600px;
+      margin: 30px auto;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background: #f9f9f9;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .profile-info {
+      margin-bottom: 20px;
+    }
+    .profile-info span {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    .memories-section {
+      margin-top: 20px;
+    }
+    textarea {
+      width: 100%;
+      height: 100px;
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .memories-list {
+      margin-top: 10px;
+    }
+    .memory-item {
+      background: #e0f7fa;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 5px;
+    }
+    button {
+      padding: 8px 16px;
+      border: none;
+      background: #4BB543;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #3a9236;
+    }
+  </style>
+</head>
+<body>
+  <div class="profile-container">
+    <h2>Requester Profile</h2>
+    <div class="profile-info">
+      <span id="userName"></span>
+      <span id="userEmail"></span>
+      <span id="userRole"></span>
+    </div>
+
+    <div class="memories-section">
+      <h3>Share Your Happy Memories</h3>
+      <textarea id="memoryInput" placeholder="Write something..."></textarea>
+      <button id="shareBtn">Share</button>
+      <div class="memories-list" id="memoriesList"></div>
+    </div>
+
+    <button id="logoutBtn" style="background:#ff4b4b; margin-top:15px;">Logout</button>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const user = JSON.parse(localStorage.getItem("user"));
+
+      // ✅ Protect page
+      if (!user || user.role !== "requester") {
+        window.location.href = "login.html";
+        return;
+      }
+
+      // ✅ Display user info
+      document.getElementById("userName").textContent = `👤 Name: ${user.name}`;
+      document.getElementById("userEmail").textContent = `📧 Email: ${user.email}`;
+      document.getElementById("userRole").textContent = `🎯 Role: ${user.role}`;
+
+      // ✅ Logout functionality
+      document.getElementById("logoutBtn").addEventListener("click", () => {
+        localStorage.removeItem("user");
+        window.location.href = "login.html";
+      });
+
+      // ✅ Share memory functionality
+      document.getElementById("shareBtn").addEventListener("click", () => {
+        const text = document.getElementById("memoryInput").value.trim();
+        if (!text) return alert("Write something before sharing!");
+
+        const div = document.createElement("div");
+        div.className = "memory-item";
+        div.textContent = text;
+        document.getElementById("memoriesList").appendChild(div);
+
+        document.getElementById("memoryInput").value = "";
+      });
+    });
+  </script>
+</body>
+</html>

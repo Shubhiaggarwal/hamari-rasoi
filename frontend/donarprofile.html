@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donor Profile | Food Management</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Profile specific CSS */
+    .profile-container { max-width: 600px; margin: 30px auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px; background: #f9f9f9; }
+    h2 { text-align: center; margin-bottom: 20px; }
+    .profile-info { margin-bottom: 20px; }
+    .profile-info span { display: block; margin-bottom: 10px; font-weight: bold; }
+    .upload-section { margin-top: 20px; }
+    input[type="file"] { margin-bottom: 10px; }
+    .uploaded-images { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+    .uploaded-images img { width: 100px; height: 100px; object-fit: cover; border-radius: 5px; }
+    button { padding: 8px 16px; border: none; background: #4BB543; color: white; border-radius: 5px; cursor: pointer; }
+    button:hover { background: #3a9236; }
+  </style>
+</head>
+<body>
+  <div class="profile-container">
+    <h2>Donor Profile</h2>
+    <div class="profile-info">
+      <span id="userName"></span>
+      <span id="userEmail"></span>
+      <span id="userRole"></span>
+    </div>
+
+    <div class="upload-section">
+      <h3>Upload Shop Images</h3>
+      <input type="file" id="shopImage" multiple>
+      <button id="uploadBtn">Upload</button>
+      <div class="uploaded-images" id="uploadedImages"></div>
+    </div>
+  </div>
+
+  <script>
+    // Get logged-in user
+document.addEventListener("DOMContentLoaded", () => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  if (!user || user.role !== "donor") {
+    window.location.href = "login.html"; // protect page
+    return;
+  }
+
+  document.getElementById("donorName").textContent = user.name;
+
+  document.getElementById("logoutLink").addEventListener("click", () => {
+    localStorage.removeItem("user");
+    window.location.href = "login.html";
+  });
+
+  // Handle shop image upload (basic preview)
+  document.getElementById("uploadBtn").addEventListener("click", () => {
+    const fileInput = document.getElementById("shopImage");
+    const files = fileInput.files;
+    if (!files.length) return alert("Select an image to upload");
+
+    const img = document.createElement("img");
+    img.src = URL.createObjectURL(files[0]);
+    img.style.width = "150px";
+    img.style.margin = "5px";
+    document.getElementById("imagesContainer").appendChild(img);
+
+    fileInput.value = ""; // reset input
+  });
+});
+
+  </script>
+</body>
+</html>

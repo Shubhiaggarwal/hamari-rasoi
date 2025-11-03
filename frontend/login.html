@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | 'हमारी रसोई'</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <h1>Login</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="login.html" class="active">Login</a>
+    <a href="signup.html">Sign Up</a>
+  </nav>
+</header>
+
+<section class="auth-form">
+  <h2>Login to Your Account</h2>
+  <form id="loginForm">
+    <label>Email:</label><br>
+    <input type="email" id="email" required><br><br>
+
+    <label>Password:</label><br>
+    <input type="password" id="password" required><br><br>
+    <select id="userType" required  style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-family: 'Poppins', sans-serif; font-size: 16px; margin-bottom: 15px; background-color: #f9f9f9;">
+        <option value="">Select Role</option>
+        <option value="donor">Donor</option>
+        <option value="requester">Requester</option>
+    </select><br><br>
+
+    <button type="submit">Login</button>
+  </form>
+  <p>Don't have an account? <a href="signup.html">Sign Up here</a></p>
+</section>
+
+<script src="login.js"></script>
+</body>
+</html>

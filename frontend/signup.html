@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up | Food Management</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <h1>Sign Up</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="login.html">Login</a>
+    <a href="signup.html" class="active">Sign Up</a>
+  </nav>
+</header>
+
+<section class="auth-form">
+  <h2>Create an Account</h2>
+  <form id="signupForm">
+    <label>Name:</label><br>
+    <input type="text" id="name" required><br><br>
+
+    <label>Email:</label><br>
+    <input type="email" id="email" required><br><br>
+
+    <label>Password:</label><br>
+    <input type="password" id="password" required><br><br>
+    <select id="role" required  style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-family: 'Poppins', sans-serif; font-size: 16px; margin-bottom: 15px; background-color: #f9f9f9;">
+  <option value="">Select your role</option>
+  <option value="donor">Donor</option>
+  <option value="requester">Requester</option>
+</select>
+<br><br>
+
+    <button type="submit">Sign Up</button>
+  </form>
+  <p>Already have an account? <a href="login.html">Login here</a></p>
+</section>
+
+<script src="signup.js"></script>
+</body>
+</html>
