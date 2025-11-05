@@ -17,93 +17,76 @@
       <a href="donor.html">Donor</a>
       <a href="request.html">Request</a>
       <a href="select.html">Select Page</a>
-      <!-- Profile & Logout will be added dynamically -->
+      <!-- Profile link will be added dynamically -->
     </nav>
   </header>
 
+  <!-- Hero Section -->
   <section class="hero">
     <h2>Save Food, Save Lives</h2>
-    <p>Connecting donors and those in need through kindness and action.</p>
+    <p>Connecting donors and those in need through kindness and action. Join our mission to eliminate hunger.</p>
     <a href="donor.html" class="cta-button">Donate Now</a>
   </section>
 
-  <!-- Hidden Profile Section -->
-  <section id="profileSection" style="display:none; max-width:600px; margin:20px auto; padding:20px; background:#f9f9f9; border-radius:10px;">
-    <h2>👤 User Profile</h2>
-    <p><strong>Name:</strong> <span id="profileName"></span></p>
-    <p><strong>Email:</strong> <span id="profileEmail"></span></p>
-    <p><strong>Role:</strong> <span id="profileRole"></span></p>
+  <!-- Carousel Section -->
+  <section class="carousel">
+    <div class="slides" id="slides">
+      <img src="/assets/1.jpeg" alt="Extra Image 1">
+    <img src="/assets/2.jpeg" alt="Extra Image 2">
+    <img src="/assets/3.jpeg" alt="Extra Image 3">
+  </section>
 
-    <div id="donorSection" style="display:none; margin-top:20px;">
-      <h3>Upload Shop Images</h3>
-      <input type="file" id="shopImage" multiple>
-      <button id="uploadBtn">Upload</button>
-      <div id="uploadedImages" style="display:flex; flex-wrap:wrap; gap:10px; margin-top:10px;"></div>
-    </div>
+  <!-- Additional Images Section -->
+  <section class="additional-images">
+    <img src="/assets/slide1.webp" alt="Extra Image 1">
+    <img src="/assets/slide2.jpeg" alt="Extra Image 2">
+    <img src="/assets/slide3.jpeg" alt="Extra Image 3">
+  </section>
 
-    <div id="requesterSection" style="display:none; margin-top:20px;">
-      <h3>Share Happy Memories</h3>
-      <textarea id="memoryInput" placeholder="Write something..." style="width:100%; height:100px; padding:10px;"></textarea>
-      <button id="shareBtn">Share</button>
-      <div id="memoriesList" style="margin-top:10px;"></div>
+  <!-- Advertisement Section -->
+  <section class="advertisement">
+    <h3>Supported By</h3>
+    <div class="brand-logos">
+      <img src="/assets/brand1.jpeg" alt="Brand 1">
+      <img src="/assets/brand2.jpeg" alt="Brand 2">
+      <img src="/assets/brand3.jpeg" alt="Brand 3">
+      <img src="/assets/brand4.jpeg" alt="Brand 4">
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 Food Management. All rights reserved.</p>
   </footer>
 
+  <!-- Carousel Animation -->
+  <script>
+    let slideIndex = 0;
+    const slides = document.getElementById("slides");
+    const totalSlides = slides.getElementsByTagName("img").length;
+    setInterval(() => {
+      slideIndex = (slideIndex + 1) % totalSlides;
+      slides.style.transform = "translateX(" + (-slideIndex * 100) + "%)";
+    }, 3000);
+  </script>
+
+  <!-- Dynamic Profile Link Script -->
   <script>
     const SERVER_URL = "http://localhost:5001";
 
     document.addEventListener("DOMContentLoaded", async () => {
       const user = JSON.parse(localStorage.getItem("user"));
       const nav = document.getElementById("navbar");
-      const profileSection = document.getElementById("profileSection");
 
       if (user) {
-        // Create Profile Link
         const profileLink = document.createElement("a");
         profileLink.href = "#";
         profileLink.textContent = "Profile";
         profileLink.addEventListener("click", async (e) => {
           e.preventDefault();
-          await showProfile(user);
+          window.location.href = "profile.html"; // Separate profile page
         });
         nav.appendChild(profileLink);
-
-        // Create Logout Link
-        // const logoutLink = document.createElement("a");
-        // logoutLink.href = "#";
-        // logoutLink.textContent = "Logout";
-        // logoutLink.addEventListener("click", () => {
-        //   localStorage.removeItem("user");
-        //   window.location.reload();
-        // });
-        // nav.appendChild(logoutLink);
-      }
-
-      async function showProfile(user) {
-        profileSection.style.display = "block";
-        try {
-          const res = await fetch(`${SERVER_URL}/api/user/profile/${user.id}`);
-          const data = await res.json();
-
-          document.getElementById("profileName").textContent = data.name;
-          document.getElementById("profileEmail").textContent = data.email;
-          document.getElementById("profileRole").textContent = data.role;
-
-          // Toggle donor/requester section
-          if (data.role === "donor") {
-            document.getElementById("donorSection").style.display = "block";
-            document.getElementById("requesterSection").style.display = "none";
-          } else {
-            document.getElementById("donorSection").style.display = "none";
-            document.getElementById("requesterSection").style.display = "block";
-          }
-        } catch (err) {
-          console.error("Error loading profile:", err);
-        }
       }
     });
   </script>
