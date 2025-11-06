@@ -2,10 +2,15 @@ const donorSelect = document.getElementById('donorSelect');
 const donorList = document.getElementById('donorList');
 const receiverSelect = document.getElementById('receiverSelect');
 const receiverList = document.getElementById('receiverList');
+const SERVER_URL = "https://hamari-rasoi.onrender.com";
+
 
 // Load donors from server
 function loadDonors() {
-  fetch('http://localhost:5000/donors')
+  // Load donors
+fetch(`${SERVER_URL}/donors`)
+
+ //
     .then(res => res.json())
     .then(donors => {
       donorSelect.innerHTML = '<option value="">Select Donor</option>';
@@ -36,7 +41,10 @@ function loadDonors() {
 
 // Load receivers from server
 function loadReceivers() {
-  fetch('http://localhost:5000/receivers')
+  // Load receivers
+fetch(`${SERVER_URL}/receivers`)
+
+  //fetch('http://localhost:5000/receivers')
     .then(res => res.json())
     .then(receivers => {
       receiverSelect.innerHTML = '<option value="">Select Receiver</option>';
@@ -67,14 +75,20 @@ function loadReceivers() {
 
 // Delete donor via server
 function deleteDonor(name) {
-  fetch(`http://localhost:5000/delete-donor/${encodeURIComponent(name)}`, { method: 'DELETE' })
+  // Delete donor
+fetch(`${SERVER_URL}/delete-donor/${encodeURIComponent(name)}`, { method: 'DELETE' })
+
+  //fetch(`http://localhost:5000/delete-donor/${encodeURIComponent(name)}`, { method: 'DELETE' })
     .then(res => res.json())
     .then(() => loadDonors());
 }
 
 // Delete receiver via server
 function deleteReceiver(name) {
-  fetch(`http://localhost:5000/delete-receiver/${encodeURIComponent(name)}`, { method: 'DELETE' })
+  // Delete receiver
+fetch(`${SERVER_URL}/delete-receiver/${encodeURIComponent(name)}`, { method: 'DELETE' })
+
+  //fetch(`http://localhost:5000/delete-receiver/${encodeURIComponent(name)}`, { method: 'DELETE' })
     .then(res => res.json())
     .then(() => loadReceivers());
 }

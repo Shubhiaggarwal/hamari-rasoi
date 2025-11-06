@@ -1,4 +1,4 @@
-const SERVER_URL = "http://localhost:5001";
+const AUTH_SERVER_URL = "https://hamari-rasoi-5.onrender.com1";
 
 document.addEventListener("DOMContentLoaded", () => {
   const signupForm = document.getElementById("signupForm");
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     try {
-      const res = await fetch(`${SERVER_URL}/signup`, {
+      const res = await fetch(`${AUTH_SERVER_URL}/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, password, role }),

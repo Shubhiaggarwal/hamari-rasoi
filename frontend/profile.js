@@ -1,4 +1,5 @@
-const SERVER_URL = "http://localhost:5001";
+const SERVER_URL = "https://hamari-rasoi.onrender.com";
+
 
 document.addEventListener("DOMContentLoaded", async () => {
   const user = JSON.parse(localStorage.getItem("user"));
